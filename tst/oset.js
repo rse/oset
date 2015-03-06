@@ -63,6 +63,15 @@ describe("OSet Library", function () {
         expect(oset.has("foo")).to.be.a("boolean").and.to.be.false
         expect(oset.get("foo")).to.be.equal(undefined)
     })
+    it("should be correctly preserve the insertion order", function () {
+        var oset = new OSet();
+        oset.set("item2", "item2");
+        oset.set("item3", "item3");
+        oset.set("item1", "item1", true);
+        oset.set("item0", "item0", true);
+        expect(oset.keys()).to.be.deep.equal([ "item0", "item1", "item2", "item3" ])
+        expect(oset.values()).to.be.deep.equal([ "item0", "item1", "item2", "item3" ])
+    })
     it("should have the expected length/keys/values/find/each/clear functionality", function () {
         var oset = new OSet();
         expect(oset.length()).to.be.a("number").and.to.be.equal(0)

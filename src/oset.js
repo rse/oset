@@ -90,16 +90,24 @@ let OSet = class OSet {
     }
 
     /*  set value under key  */
-    set (key, val) {
+    set (key, val, toFront) {
         let bucket = this._index[key]
         if (bucket === undefined) {
             /*  insert new bucket  */
             bucket = { key: key, val: val }
             this._index[key] = bucket
-            bucket.prev = this._ring.prev
-            bucket.next = this._ring
-            bucket.prev.next = bucket
-            this._ring.prev  = bucket
+            if (toFront) {
+                bucket.next = this._ring.next
+                bucket.prev = this._ring
+                bucket.next.prev = bucket
+                this._ring.next  = bucket
+            }
+            else {
+                bucket.prev = this._ring.prev
+                bucket.next = this._ring
+                bucket.prev.next = bucket
+                this._ring.prev  = bucket
+            }
             this._items++;
         }
         else {

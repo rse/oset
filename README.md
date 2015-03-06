@@ -52,9 +52,11 @@ Usage
   Get value of item under `key`.
   If no object exists under `key` the value `undefined` is returned.
 
-- `OSet#set(key: String, val: Object): OSet`: [O(1)]<br/>
+- `OSet#set(key: String, val: Object, toFront?: Boolean): OSet`: [O(1)]<br/>
   Set value of item under `key`. If there is already an item stored
-  under `key`, replace its value. Else insert as a new item into the set.
+  under `key`, replace its value. Else insert as a new item into the set
+  (by default to the end of the list of elements,
+   or, if `toFront` is `true`, to the start of the list of elements).
 
 - `OSet#del(key: String): OSet`: [O(1)]<br/>
   Delete item under `key`.
