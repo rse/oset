@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                         [ "browserify-header" ]
                     ],
                     browserifyOptions: {
-                        standalone: "OrderedSet",
+                        standalone: "OSet",
                         debug: true
                     }
                 }
