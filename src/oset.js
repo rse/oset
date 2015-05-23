@@ -22,7 +22,7 @@
 **  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-let OSet = class OSet {
+const OSet = class OSet {
     /*  create data structure instance  */
     constructor () {
         this._items = 0
