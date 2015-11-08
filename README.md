@@ -37,6 +37,14 @@ $ bower install oset
 Usage
 -----
 
+### Importing
+
+- `import OSet from "oset"`<br/>
+   Import OSet (ECMAScript 6 variant).
+
+- `var OSet = require("oset").default`<br/>
+   Import OSet (CommonJS variant).
+
 ### Main Operations
 
 - `new OSet(): OSet`: [O(1)]<br/>

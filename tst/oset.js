@@ -28,11 +28,11 @@
 /* global require: false */
 /* jshint -W030: false */
 
-var OSet = require("../lib/oset.js");
+var OSet = require("../lib/oset.js").default
 
 describe("OSet Library", function () {
     it("should expose its official API", function () {
-        var oset = new OSet();
+        var oset = new OSet()
         expect(oset).to.be.a("object")
         expect(oset).to.respondTo("length")
         expect(oset).to.respondTo("keys")
@@ -50,35 +50,35 @@ describe("OSet Library", function () {
         expect(oset).to.respondTo("difference")
     })
     it("should have the expected has/set/get/del functionality", function () {
-        var oset = new OSet();
+        var oset = new OSet()
         expect(oset.has("foo")).to.be.a("boolean").and.to.be.false
-        oset.set("foo", true);
-        oset.set("bar", "baz");
-        oset.set("quux", 42);
+        oset.set("foo", true)
+        oset.set("bar", "baz")
+        oset.set("quux", 42)
         expect(oset.has("foo")).to.be.a("boolean").and.to.be.true
         expect(oset.get("foo")).to.be.a("boolean").and.to.be.true
         expect(oset.get("bar")).to.be.a("string").and.to.be.equal("baz")
         expect(oset.get("quux")).to.be.a("number").and.to.be.equal(42)
-        oset.del("foo");
+        oset.del("foo")
         expect(oset.has("foo")).to.be.a("boolean").and.to.be.false
         expect(oset.get("foo")).to.be.equal(undefined)
     })
     it("should be correctly preserve the insertion order", function () {
-        var oset = new OSet();
-        oset.set("item2", "item2");
-        oset.set("item3", "item3");
-        oset.set("item1", "item1", true);
-        oset.set("item0", "item0", true);
+        var oset = new OSet()
+        oset.set("item2", "item2")
+        oset.set("item3", "item3")
+        oset.set("item1", "item1", true)
+        oset.set("item0", "item0", true)
         expect(oset.keys()).to.be.deep.equal([ "item0", "item1", "item2", "item3" ])
         expect(oset.values()).to.be.deep.equal([ "item0", "item1", "item2", "item3" ])
     })
     it("should have the expected length/keys/values/find/each/clear functionality", function () {
-        var oset = new OSet();
+        var oset = new OSet()
         expect(oset.length()).to.be.a("number").and.to.be.equal(0)
-        oset.set("foo", true);
-        oset.set("bar", "val1");
-        oset.set("baz", "val2");
-        oset.set("quux", 42);
+        oset.set("foo", true)
+        oset.set("bar", "val1")
+        oset.set("baz", "val2")
+        oset.set("quux", 42)
         expect(oset.length()).to.be.a("number").and.to.be.equal(4)
         expect(oset.keys()).to.be.deep.equal([ "foo", "bar", "baz", "quux" ])
         expect(oset.values()).to.be.deep.equal([ true, "val1", "val2", 42 ])
@@ -88,8 +88,8 @@ describe("OSet Library", function () {
         expect(oset.length()).to.be.a("number").and.to.be.equal(0)
     })
     it("should have the expected merge/union/intersection/difference functionality", function () {
-        var oset1 = new OSet();
-        var oset2 = new OSet();
+        var oset1 = new OSet()
+        var oset2 = new OSet()
         oset1.set("foo", "bar")
         oset2.set("baz", "quux")
         expect(oset1.length()).to.be.a("number").and.to.be.equal(1)
