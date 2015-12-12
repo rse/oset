@@ -28,7 +28,7 @@
 /* global require: false */
 /* jshint -W030: false */
 
-var OSet = require("../lib/oset.js").default
+var OSet = require("../lib/oset.js")
 
 describe("OSet Library", function () {
     it("should expose its official API", function () {

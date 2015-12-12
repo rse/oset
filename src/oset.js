@@ -22,7 +22,7 @@
 **  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-const OSet = class OSet {
+class OSet {
     /*  create data structure instance  */
     constructor () {
         this._items = 0
@@ -183,5 +183,5 @@ const OSet = class OSet {
     }
 }
 
-export default OSet
+module.exports = OSet
 
