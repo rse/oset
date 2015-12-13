@@ -42,7 +42,7 @@ Usage
 - `import OSet from "oset"`<br/>
    Import OSet (ECMAScript 6 variant).
 
-- `var OSet = require("oset").default`<br/>
+- `var OSet = require("oset")`<br/>
    Import OSet (CommonJS variant).
 
 ### Main Operations
