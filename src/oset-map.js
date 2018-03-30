@@ -108,7 +108,7 @@ export default class OMap {
                 bucket.prev.next = bucket
                 this._ring.prev  = bucket
             }
-            this._items++;
+            this._items++
         }
         else {
             /*  replace existing bucket  */
@@ -127,7 +127,7 @@ export default class OMap {
         bucket.next.prev = bucket.prev
         delete bucket.prev
         delete bucket.next
-        this._items--;
+        this._items--
         return this
     }
 

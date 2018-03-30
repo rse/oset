@@ -95,7 +95,7 @@ export default class OSet {
                 bucket.prev.next = bucket
                 this._ring.prev  = bucket
             }
-            this._items++;
+            this._items++
         }
         return this
     }
@@ -114,7 +114,7 @@ export default class OSet {
         bucket.next.prev = bucket.prev
         delete bucket.prev
         delete bucket.next
-        this._items--;
+        this._items--
         return this
     }
 
