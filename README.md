@@ -25,16 +25,8 @@ merge/union/intersection/difference and sort operations.
 Installation
 ------------
 
-#### Node environments (with NPM package manager):
-
 ```shell
 $ npm install oset
-```
-
-#### Browser environments (with Bower package manager):
-
-```shell
-$ bower install oset
 ```
 
 Usage
