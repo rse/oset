@@ -26,7 +26,7 @@
 /* global it: false */
 /* global expect: false */
 /* global require: false */
-/* jshint -W030: false */
+/* eslint no-unused-expressions: off */
 
 var OMap = require("../lib/oset.js").OMap
 
