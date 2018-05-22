@@ -134,11 +134,11 @@ Usage
   Get value of item under `key`.
   If no object exists under `key` the value `undefined` is returned.
 
-- `OMap#map(key: String, val: Object, toFront?: Boolean): OMap`: [O(1)]<br/>
+- `OMap#set(key: String, val: Object, toFront?: Boolean): OMap`: [O(1)]<br/>
   Set value of item under `key`. If there is already an item stored
   under `key`, replace its value. Else insert as a new item into the map
   (by default to the end of the list of elements,
-   or, if `toFront` is `true`, to the start of the list of elements).
+  or, if `toFront` is `true`, to the start of the list of elements).
 
 - `OMap#del(key: String): OMap`: [O(1)]<br/>
   Delete item under `key`.
