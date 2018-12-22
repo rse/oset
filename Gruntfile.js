@@ -43,15 +43,25 @@ module.exports = function (grunt) {
                     "lib/oset.js": [ "src/**/*.js" ]
                 },
                 options: {
-                    transform: [ [ "babelify", { presets: [ "es2015" ] } ] ],
+                    transform: [
+                        [ "babelify", {
+                            presets: [
+                                [ "@babel/preset-env", {
+                                    "targets": {
+                                        "browsers": "last 8 versions, > 1%, ie 11"
+                                    }
+                                } ]
+                            ]
+                        } ],
+                        [ "uglifyify", { sourceMap: false, global: true } ]
+                    ],
                     plugin: [
-                        [ "minifyify" ],
                         [ "browserify-derequire" ],
                         [ "browserify-header" ]
                     ],
                     browserifyOptions: {
                         standalone: "OSet",
-                        debug: true
+                        debug: false
                     }
                 }
             }
