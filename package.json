@@ -1,6 +1,6 @@
 {
     "name":        "oset",
-    "version":     "2.0.12",
+    "version":     "2.1.0",
     "description": "Ordered Set Data Structure",
     "keywords":    [ "ordered", "set" ],
     "main":        "lib/oset.js",
