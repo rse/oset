@@ -82,7 +82,7 @@ export default class OSet {
     add (val, toFront) {
         if (!this.has(val)) {
             /*  insert new bucket  */
-            let bucket = { val: val }
+            const bucket = { val: val }
             if (toFront) {
                 bucket.next = this._ring.next
                 bucket.prev = this._ring
@@ -136,7 +136,7 @@ export default class OSet {
 
     /*  create new set based on union with other set  */
     union (other) {
-        let result = new OSet()
+        const result = new OSet()
         this.each((val) => {
             result.add(val)
         })
@@ -148,7 +148,7 @@ export default class OSet {
 
     /*  create new set based on intersection with other set  */
     intersection (other) {
-        let result = new OSet()
+        const result = new OSet()
         this.each((val) => {
             if (other.has(val))
                 result.add(val)
@@ -158,7 +158,7 @@ export default class OSet {
 
     /*  create new set based on difference with other set  */
     difference (other) {
-        let result = new OSet()
+        const result = new OSet()
         this.each((val) => {
             if (!other.has(val))
                 result.add(val)
@@ -175,7 +175,7 @@ export default class OSet {
                 else            return  0
             }
         }
-        let vals = this.each(function (val) {
+        const vals = this.each(function (val) {
             this.push(val)
         }, [])
         vals.sort(compare)

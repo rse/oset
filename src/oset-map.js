@@ -77,13 +77,13 @@ export default class OMap {
 
     /*  check whether item exists under key  */
     has (key) {
-        let bucket = this._index[key]
+        const bucket = this._index[key]
         return (bucket !== undefined)
     }
 
     /*  get value under key  */
     get (key) {
-        let bucket = this._index[key]
+        const bucket = this._index[key]
         if (bucket === undefined)
             return undefined
         return bucket.val
@@ -119,7 +119,7 @@ export default class OMap {
 
     /*  delete item under key  */
     del (key) {
-        let bucket = this._index[key]
+        const bucket = this._index[key]
         if (bucket === undefined)
             throw new Error("del: no such item")
         delete this._index[key]
@@ -149,7 +149,7 @@ export default class OMap {
 
     /*  create new map based on union with other map  */
     union (other) {
-        let result = new OMap()
+        const result = new OMap()
         this.each((val, key) => {
             result.set(key, val)
         })
@@ -161,7 +161,7 @@ export default class OMap {
 
     /*  create new map based on intersection with other map  */
     intersection (other) {
-        let result = new OMap()
+        const result = new OMap()
         this.each((val, key) => {
             if (other.has(key)) {
                 if (other.get(key) !== val)
@@ -174,7 +174,7 @@ export default class OMap {
 
     /*  create new map based on difference with other map  */
     difference (other) {
-        let result = new OMap()
+        const result = new OMap()
         this.each((val, key) => {
             if (!other.has(key))
                 result.set(key, val)
@@ -191,7 +191,7 @@ export default class OMap {
                 else            return  0
             }
         }
-        let keyvals = this.each(function (val, key) {
+        const keyvals = this.each(function (val, key) {
             this.push({ key, val })
         }, [])
         keyvals.sort((a, b) => compare(a.key, b.key))
