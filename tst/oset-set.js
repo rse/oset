@@ -28,11 +28,11 @@
 /* global require: false */
 /* eslint no-unused-expressions: off */
 
-var OSet = require("../lib/oset.js").OSet
+const OSet = require("../lib/oset.js").OSet
 
 describe("OSet Data Structure", function () {
     it("should expose its official API", function () {
-        var oset = new OSet()
+        const oset = new OSet()
         expect(oset).to.be.a("object")
         expect(oset).to.respondTo("size")
         expect(oset).to.respondTo("values")
@@ -48,7 +48,7 @@ describe("OSet Data Structure", function () {
         expect(oset).to.respondTo("difference")
     })
     it("should have the expected has/add/del functionality", function () {
-        var oset = new OSet()
+        const oset = new OSet()
         expect(oset.has("foo")).to.be.a("boolean").and.to.be.false
         oset.add("foo")
         oset.add("bar")
@@ -60,7 +60,7 @@ describe("OSet Data Structure", function () {
         expect(oset.has("foo")).to.be.a("boolean").and.to.be.false
     })
     it("should be correctly preserve the insertion order", function () {
-        var oset = new OSet()
+        const oset = new OSet()
         oset.add("item2")
         oset.add("item3")
         oset.add("item1", true)
@@ -68,7 +68,7 @@ describe("OSet Data Structure", function () {
         expect(oset.values()).to.be.deep.equal([ "item0", "item1", "item2", "item3" ])
     })
     it("should have the expected size/values/find/each/clear functionality", function () {
-        var oset = new OSet()
+        const oset = new OSet()
         expect(oset.size()).to.be.a("number").and.to.be.equal(0)
         oset.add("foo")
         oset.add("bar")
@@ -84,8 +84,8 @@ describe("OSet Data Structure", function () {
         expect(oset.size()).to.be.a("number").and.to.be.equal(0)
     })
     it("should have the expected merge/union/intersection/difference functionality", function () {
-        var oset1 = new OSet()
-        var oset2 = new OSet()
+        const oset1 = new OSet()
+        const oset2 = new OSet()
         oset1.add("foo")
         oset2.add("baz")
         expect(oset1.size()).to.be.a("number").and.to.be.equal(1)
@@ -95,15 +95,15 @@ describe("OSet Data Structure", function () {
         expect(oset2.size()).to.be.a("number").and.to.be.equal(0)
         oset2.add("baz")
         oset2.add("quux")
-        var oset3 = oset1.union(oset2)
+        const oset3 = oset1.union(oset2)
         expect(oset3.size()).to.be.a("number").and.to.be.equal(3)
-        var oset4 = oset1.intersection(oset2)
+        const oset4 = oset1.intersection(oset2)
         expect(oset4.size()).to.be.a("number").and.to.be.equal(1)
-        var oset5 = oset1.difference(oset2)
+        const oset5 = oset1.difference(oset2)
         expect(oset5.size()).to.be.a("number").and.to.be.equal(1)
     })
     it("should have the expected sort functionality", function () {
-        var oset = new OSet()
+        const oset = new OSet()
         oset.add("c")
         oset.add("d")
         oset.add("b")

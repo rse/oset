@@ -28,11 +28,11 @@
 /* global require: false */
 /* eslint no-unused-expressions: off */
 
-var OMap = require("../lib/oset.js").OMap
+const OMap = require("../lib/oset.js").OMap
 
 describe("OMap Data Structure", function () {
     it("should expose its official API", function () {
-        var omap = new OMap()
+        const omap = new OMap()
         expect(omap).to.be.a("object")
         expect(omap).to.respondTo("size")
         expect(omap).to.respondTo("keys")
@@ -50,7 +50,7 @@ describe("OMap Data Structure", function () {
         expect(omap).to.respondTo("difference")
     })
     it("should have the expected has/set/get/del functionality", function () {
-        var omap = new OMap()
+        const omap = new OMap()
         expect(omap.has("foo")).to.be.a("boolean").and.to.be.false
         omap.set("foo", true)
         omap.set("bar", "baz")
@@ -64,7 +64,7 @@ describe("OMap Data Structure", function () {
         expect(omap.get("foo")).to.be.equal(undefined)
     })
     it("should be correctly preserve the insertion order", function () {
-        var omap = new OMap()
+        const omap = new OMap()
         omap.set("item2", "item2")
         omap.set("item3", "item3")
         omap.set("item1", "item1", true)
@@ -73,7 +73,7 @@ describe("OMap Data Structure", function () {
         expect(omap.values()).to.be.deep.equal([ "item0", "item1", "item2", "item3" ])
     })
     it("should have the expected size/keys/values/find/each/clear functionality", function () {
-        var omap = new OMap()
+        const omap = new OMap()
         expect(omap.size()).to.be.a("number").and.to.be.equal(0)
         omap.set("foo", true)
         omap.set("bar", "val1")
@@ -88,8 +88,8 @@ describe("OMap Data Structure", function () {
         expect(omap.size()).to.be.a("number").and.to.be.equal(0)
     })
     it("should have the expected merge/union/intersection/difference functionality", function () {
-        var omap1 = new OMap()
-        var omap2 = new OMap()
+        const omap1 = new OMap()
+        const omap2 = new OMap()
         omap1.set("foo", "bar")
         omap2.set("baz", "quux")
         expect(omap1.size()).to.be.a("number").and.to.be.equal(1)
@@ -99,15 +99,15 @@ describe("OMap Data Structure", function () {
         expect(omap2.size()).to.be.a("number").and.to.be.equal(0)
         omap2.set("baz", "quux")
         omap2.set("quux", "quux")
-        var omap3 = omap1.union(omap2)
+        const omap3 = omap1.union(omap2)
         expect(omap3.size()).to.be.a("number").and.to.be.equal(3)
-        var omap4 = omap1.intersection(omap2)
+        const omap4 = omap1.intersection(omap2)
         expect(omap4.size()).to.be.a("number").and.to.be.equal(1)
-        var omap5 = omap1.difference(omap2)
+        const omap5 = omap1.difference(omap2)
         expect(omap5.size()).to.be.a("number").and.to.be.equal(1)
     })
     it("should have the expected sort functionality", function () {
-        var omap = new OMap()
+        const omap = new OMap()
         omap.set("c", true)
         omap.set("d", true)
         omap.set("b", true)
