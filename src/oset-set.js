@@ -82,7 +82,7 @@ export default class OSet {
     add (val, toFront) {
         if (!this.has(val)) {
             /*  insert new bucket  */
-            const bucket = { val: val }
+            const bucket = { val }
             if (toFront) {
                 bucket.next = this._ring.next
                 bucket.prev = this._ring

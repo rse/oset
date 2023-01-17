@@ -94,7 +94,7 @@ export default class OMap {
         let bucket = this._index[key]
         if (bucket === undefined) {
             /*  insert new bucket  */
-            bucket = { key: key, val: val }
+            bucket = { key, val }
             this._index[key] = bucket
             if (toFront) {
                 bucket.next = this._ring.next
